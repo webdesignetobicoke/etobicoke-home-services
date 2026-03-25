@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy-dark: #0E1C35;
+  --navy: #1A2F52;
+  --gold: #C4933F;
+  --gold-hover: #B5842E;
+  --gold-light: #E8BA6A;
+  --cream: #F8F6F1;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+/* Dropdown hover */
+.nav-group:hover .nav-dropdown { display: block; }
+
+/* Pulse animation for CTA button */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196,147,63,0.45); }
+  50% { box-shadow: 0 0 0 10px rgba(196,147,63,0); }
+}
+.pulse-gold { animation: pulse-gold 2.5s infinite; }
+
+/* Star fill */
+.star-filled { color: #C4933F; }
+
+/* Smooth underline nav */
+.nav-link-underline::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.nav-link-underline:hover::after { transform: scaleX(1); }
+
+/* Scroll fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease both; }
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.3s; }
+.fade-up-delay-4 { animation-delay: 0.4s; }
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+}
+
+/* Gold bar underline for headings */
+.gold-bar::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  margin-bottom: 14px;
+  border-radius: 2px;
+}
+
+/* Coupon dashed border */
+.coupon-dashed {
+  border: 2px dashed #D1D5DB;
+}
+
+/* Scissors snip animation */
+@keyframes snip {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+.scissors-snip { animation: snip 1.8s ease-in-out infinite; }
